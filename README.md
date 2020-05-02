@@ -24,4 +24,5 @@ The second transformation we performed was to join both tables. Each table conta
 
 
 LOAD
-	Mongo DB has been chosen as the final database.
+	
+Mongo DB has been chosen as the final database.
