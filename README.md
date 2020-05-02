@@ -11,10 +11,7 @@ EXTRACT
 
 The data used for this project came from two sources: United States Craft Beer Brand Data and Mexico Craft Beer Brand Data. The data extraction consisted of two main scrapping processes. The first scaping allowed us to extract all the Beer IDs for each country. These IDs allowed us to open more detailed info about each location within each country. The second scraping extracted the actual data we wanted to use.
 
-First Scraping output table:
-
-
-Second Scrapping output csv:
+We have two scraping tables that can be viewed as PNGs in the repository.
 
 
 
@@ -27,4 +24,4 @@ The second transformation we performed was to join both tables. Each table conta
 
 
 LOAD
-	{the final database, tables/collections, and why this was chosen} 
+	Mongo DB has been chosen as the final database.
