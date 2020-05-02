@@ -4,7 +4,7 @@ Submission date: 30 April 2020
 Team Members: Scotty, Ian and Francisco
 
 Overview
-Our group decided to tackle the logistics industry. We will perform an ETL process forMaxianet’s international operations. Maxianet helps brands create new revenue in foreignmarkets. We distribute various consumer goods to countries in North America, Central America,South America, Europe, Africa and Asia. Our focus is on volume and market leadership. For this project we will narrow our scope to Mexico and the USA. The ETL will yield a centralized data frame from which the company will be able to query much more effectively.
+Our group decided to tackle the logistics industry. We will perform an ETL process forMaxianet’s international operations. Maxianet helps brands create new revenue in foreignmarkets. We distribute various consumer goods to countries in North America, Central America,South America, Europe, Africa and Asia. Our focus is on volume and market leadership. For this project we will narrow our scope to Ecuador and the USA. The ETL will yield a centralized data frame from which the company will be able to query much more effectively.
 
 
 EXTRACT 
