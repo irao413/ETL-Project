@@ -1,30 +1,33 @@
 # ETL_Francisco_Ian_Scotty
+Hello! 
 
-Submission date: 30 April 2020
-Team Members: Scotty, Ian and Francisco
+This document will serve as a repository for our ETL Project.
 
-Overview
+To collect our data, which is on a website without an API, we began by web scraping. What we were we scraping was audits of stores around Latin America and the United States. Each audit correspondes to a type of audit. Either the focus was on many different brands, their presence, or price in each store. Or, the foucs would be on one particular brand. An audit correspondes to one particular person's data entry. So for one country there could be 2 different types of audits and 50 submissions for each one. 
 
-Our group decided to tackle the logistics industry. We will perform an ETL process forMaxianet’s international operations. Maxianet helps brands create new revenue in foreignmarkets. We distribute various consumer goods to countries in North America, Central America,South America, Europe, Africa and Asia. Our focus is on volume and market leadership. For this project we will narrow our scope to Ecuador and the USA. The ETL will yield a centralized data frame from which the company will be able to query much more effectively.
+The actual webpage for these individual audits to be scraped follow a url path that correlates to the ID of the audit. For isntance; https://maxianetpe.campodata.com/submissions/2624230/webview
+
+2624230 is the audit number.
+
+So the first thing we wanted to do is to go to the homepage where a table of all audit ID's were available. We scrape this page and return a CSV file correlating to ScrapeidUnitedStates.py and IntlID's.csv respectively. We then take this CSV and read it into our individual looping python file: ScrapeEachSubmission.py. By looping through this list and appending each ID to the redirect page in the session we create a DataFrame of scraped values correlating to the ID. This is then saved to USBeerMarket.csv. Now that we have collected the data we want to transform it.
+
+After each collection process we clean up the Dataframes in the same python file. For instance, USBeerMarket.csv looked a lot different than before. Most of the clean up had to do with null values, and certain individual pages missing information. 
+
+After this we wanted to turn the csv file into a json format for easy upload to MongoDB. This is done at csvtojson.py. 
+
+Then we want to push it to MongoDB: sendtomongoEc.py originally pushed the U.S data, and once that was pushed it was changed to push the Ecuador data. since, it was not able to connect I pushed the file via terminal. You can take a look at the images of the DataBase by refferring to the two screenshot png's.
+
+We then repeated this process for Ecuador. 
+
+To collect ID's : ScrapeIDUnitedStates.py and return EcuadorIDs.csv. (The python loops through all countries)
+
+To scrape individual: ScrapeEcuador.ipnyb return Ecuador.csv
+
+To change to json: ecuadortojson.py
+
+To push: SendtoMongoEC.py.
+
+That wraps it up. 
 
 
-EXTRACT 
 
-The data used for this project came from two sources: United States Craft Beer Brand Data and Mexico Craft Beer Brand Data. The data extraction consisted of two main scrapping processes. The first scaping allowed us to extract all the Beer IDs for each country. These IDs allowed us to open more detailed info about each location within each country. The second scraping extracted the actual data we wanted to use.
-
-We have two scraping tables that can be viewed as PNGs in the repository.
-
-
-
-TRANSFORM
-
-The first transformation we performed after exporting the data from the second scraping was clearing out all NA values. Since there was a very large number of variables (beer types) most shops did not offer very single beer, by consequence, most rows had at least one NA value. For this reason we could not all rows containing NA values, we would have been left out with virtually no data. We decided that the most convenient path was to make all NA values equal to 0.
-
-The second transformation we performed was to join both tables. Each table contains data from a specific country, USA and Mexico.
-
-{data normalization}
-
-
-LOAD
-	
-Mongo DB has been chosen as the final database.
